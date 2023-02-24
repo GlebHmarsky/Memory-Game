@@ -19,7 +19,7 @@ public class TokenManger : MonoBehaviour
     else
     {
       secondToken = token;
-      
+
       if (CheckTokens())
       {
         Debug.Log("Match!");
@@ -29,16 +29,18 @@ public class TokenManger : MonoBehaviour
       }
       else
       {
-        StartCoroutine(Miss());
+        Token[] arr = { firstToken, secondToken };
+        Discard();
+        StartCoroutine(Miss(arr));
       }
     }
   }
 
-  private IEnumerator Miss()
+  private IEnumerator Miss(Token[] list)
   {
     Debug.Log("Miss :(");
     yield return new WaitForSeconds(0.5f);
-    CloseCards();
+    CloseCards(list);
     GameManager.instance.levelManager.Miss();
 
   }
@@ -54,7 +56,13 @@ public class TokenManger : MonoBehaviour
   {
     firstToken.Close();
     secondToken.Close();
-    Discard();
+  }
+  public void CloseCards(Token[] list)
+  {
+    foreach (var token in list)
+    {
+      token.Close();
+    }
   }
 
   public void DisableSelected()
