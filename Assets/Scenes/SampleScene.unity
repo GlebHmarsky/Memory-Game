@@ -269,11 +269,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634a5f4cdf0b3b4f91a771adeb56672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  back: {fileID: 1602542642, guid: 3e570fa3e3a3a41438857a4bbc91b763, type: 3}
+  back: {fileID: 21300000, guid: ec0668938c351e64c8210c1790d29fc2, type: 3}
   faces:
-  - {fileID: 265368549, guid: 3e570fa3e3a3a41438857a4bbc91b763, type: 3}
-  - {fileID: 396197306, guid: 3e570fa3e3a3a41438857a4bbc91b763, type: 3}
-  - {fileID: -657820737, guid: 3e570fa3e3a3a41438857a4bbc91b763, type: 3}
+  - {fileID: 21300000, guid: 3396afc3b7c199341bb17c7b527f490c, type: 3}
+  - {fileID: 21300000, guid: 84bc3d78ef98f15499e9f976949774b4, type: 3}
+  - {fileID: 21300000, guid: 9a8bca66706c42045985d37b1cdbf4c6, type: 3}
+  - {fileID: 21300000, guid: e61fe6d0e0efb454b8a634cf32101c13, type: 3}
+  - {fileID: 21300000, guid: 09872d9c4eec97141881b94259a3e108, type: 3}
+  - {fileID: 21300000, guid: 1203d672227044b408c372d9f72d9e9f, type: 3}
+  - {fileID: 21300000, guid: 16ba63c81858aaf4da898fc260f72f9d, type: 3}
+  - {fileID: 21300000, guid: e1ef254b5ad17a741b4cd054b3b7623c, type: 3}
+  - {fileID: 21300000, guid: 97719f0d8953c2d45b887f0ccc8c4d85, type: 3}
+  - {fileID: 21300000, guid: df307eab13101db4f88402af74a612f4, type: 3}
   firstToken: {fileID: 0}
   secondToken: {fileID: 0}
 --- !u!114 &881841665

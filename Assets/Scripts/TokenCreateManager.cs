@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class TokenCreateManager : MonoBehaviour
 {
   public List<Token> tokens;
