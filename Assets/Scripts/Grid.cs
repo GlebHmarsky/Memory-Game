@@ -13,11 +13,13 @@ public class Grid : MonoBehaviour
     {
       for (int col = 0; col < cols; col++, i++)
       {
-        float posX = col * tokenSize - (width / 2);
-        float posY = row * -tokenSize + (height / 2);
+        float offset = 1.2f; //for the gap between cards
+        float posX = col * (tokenSize * offset) - (width * offset / 2);
+        float posY = row * -(tokenSize * offset) + (height * offset / 2);
 
-
-        list[i].transform.position = new Vector2(posX, posY);
+        var tmp = list[i];
+        tmp.transform.position = new Vector2(posX, posY);
+        tmp.transform.localScale = new Vector3(tokenSize, tokenSize, tokenSize);
       }
     }
   }

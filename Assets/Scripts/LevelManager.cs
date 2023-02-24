@@ -6,7 +6,7 @@ using System;
 [RequireComponent(typeof(TokenCreateManager))]
 public class LevelManager : MonoBehaviour
 {
-  int level = 1;
+  int level = 3;
   private int pairCount;
   private int matchCount;
   public int lives = 5;
@@ -79,8 +79,8 @@ public class LevelManager : MonoBehaviour
         {
           pairCount = 6;
           tokenCreateManager.CreateTokenList(pairCount);
-          Grid.PlaceByGrid(tokenCreateManager.tokens, 3, 4, 3);
-          duration = 4.5f;
+          Grid.PlaceByGrid(tokenCreateManager.tokens, 3, 4, 2);
+          duration = 5;
         }
         break;
       case 5:
@@ -88,8 +88,8 @@ public class LevelManager : MonoBehaviour
         {
           pairCount = 8;
           tokenCreateManager.CreateTokenList(pairCount);
-          Grid.PlaceByGrid(tokenCreateManager.tokens, 3, 4, 3);
-          duration = 5;
+          Grid.PlaceByGrid(tokenCreateManager.tokens, 4, 4, 1.8f);
+          duration = 7;
         }
         break;
     }
