@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class TokenCreateManager : MonoBehaviour
 {
-  public int length = 3;
   public List<Token> tokens;
   public Token tokenPrefab;
   private System.Random rng = new System.Random();
 
-  private void Start()
+  public void CreateTokenList(int tokenPairCount)
   {
-    CreateTokenList();
-    Replace();
-  }
-
-  void CreateTokenList()
-  {
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < tokenPairCount; i++)
     {
       CreateTokenPair(i);
     }
@@ -50,26 +43,4 @@ public class TokenCreateManager : MonoBehaviour
     token.tokenIndex = index;
     tokens.Add(token);
   }
-
-  void Replace()
-  {
-    int xCounter = 0;
-    int yCounter = 0;
-    float xStart = -4.2f;
-    float yStart = 2.2f;
-    float xOffset = 4f;
-    float yOffset = -4f;
-    foreach (var token in tokens)
-    {
-      var vec = new Vector3(xStart + (xCounter * xOffset), yStart + (yCounter * yOffset), 0);
-      token.gameObject.transform.position = vec;
-      xCounter++;
-      if (xCounter % length == 0)
-      {
-        xCounter = 0;
-        yCounter++;
-      }
-    }
-  }
-
 }

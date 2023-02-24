@@ -34,20 +34,20 @@ public class TokenManger : MonoBehaviour
 
   public void CloseFirstCard()
   {
-    firstToken.CloseCard();
+    firstToken.Close();
     firstToken = null;
   }
 
   public void CloseCards()
   {
-    firstToken.CloseCard();
-    secondToken.CloseCard();
+    firstToken.Close();
+    secondToken.Close();
     Discard();
   }
 
   public void DisableCards()
   {
-    secondToken.enable = firstToken.enable = false;
+    secondToken.active = firstToken.active = false;
   }
 
   public void Discard()

@@ -7,9 +7,19 @@ public class Token : MonoBehaviour
   SpriteRenderer spriteRenderer;
   private Sprite face = null;
   private Sprite back;
-  public int tokenIndex;
+
+  private int _tokenIndex;
+  public int tokenIndex
+  {
+    get { return _tokenIndex;}
+    set
+    {
+      _tokenIndex = value;
+      face = faces[_tokenIndex];
+    }
+  }
   public bool open = false;
-  public bool enable = true;
+  public bool active = true;
 
   private List<Sprite> faces;
 
@@ -26,7 +36,7 @@ public class Token : MonoBehaviour
 
   public void OnMouseDown()
   {
-    if (!enable) return;
+    if (!active) return;
 
     if (!face)
     {
@@ -35,23 +45,24 @@ public class Token : MonoBehaviour
 
     if (!open)
     {
-      OpenCard();
+      Open();
     }
     else
     {
-      CloseCard();
+      Close();
       tokenManger.CloseFirstCard();
     }
   }
 
-  public void OpenCard()
+  public void Open()
   {
-    open = true;
+    open = true; // TODO: add actions on change open, that would be easier than that 
     spriteRenderer.sprite = face;
+    if (!active) return;
     tokenManger.OpenCard(this);
   }
 
-  public void CloseCard()
+  public void Close()
   {
     open = false;
     spriteRenderer.sprite = back;

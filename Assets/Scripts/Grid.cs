@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-  static void PlaceByGrid(List<Token> list, int rows, int cols, float tokenSize)
+  public static void PlaceByGrid(List<Token> list, int rows, int cols, float tokenSize)
   {
     for (int i = 0, row = 0; row < rows; row++)
     {

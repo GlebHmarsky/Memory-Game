@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
   public static GameManager instance;
 
   public TokenManger tokenManger;
+  public TokenCreateManager tokenCreateManager;
+  public LevelManager levelManager;
 
   void Awake()
   {
