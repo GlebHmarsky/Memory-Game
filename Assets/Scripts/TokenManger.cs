@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class TokenManger : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class TokenManger : MonoBehaviour
     else
     {
       secondToken = token;
+      
       if (CheckTokens())
       {
         Debug.Log("Match!");
@@ -27,11 +29,20 @@ public class TokenManger : MonoBehaviour
       }
       else
       {
-        Debug.Log("Miss :(");
-        CloseCards();
+        StartCoroutine(Miss());
       }
     }
   }
+
+  private IEnumerator Miss()
+  {
+    Debug.Log("Miss :(");
+    yield return new WaitForSeconds(0.5f);
+    CloseCards();
+    GameManager.instance.levelManager.Miss();
+
+  }
+
 
   public void CloseFirstCard()
   {

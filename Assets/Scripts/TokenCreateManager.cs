@@ -29,14 +29,15 @@ public class TokenCreateManager : MonoBehaviour
 
   void CreateTokenPair(int index)
   {
-    Token token;
+    CreateSingleToken(index);
+    CreateSingleToken(index);
+  }
 
-    token = Instantiate(tokenPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+  void CreateSingleToken(int index)
+  {
+    Token token = Instantiate(tokenPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     token.tokenIndex = index;
-    tokens.Add(token);
-
-    token = Instantiate(tokenPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-    token.tokenIndex = index;
+    token.active = false;
     tokens.Add(token);
   }
 }

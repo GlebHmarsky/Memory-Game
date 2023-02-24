@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(TokenCreateManager))]
 public class LevelManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour
   private int pairCount;
   private int matchCount;
   public int lives = 5;
+  public event Action<int> updateLives;
   private TokenCreateManager tokenCreateManager;
 
   private void Start()
@@ -23,15 +25,22 @@ public class LevelManager : MonoBehaviour
 
     if (matchCount == pairCount)
     {
-      LevelUp();
+      StartCoroutine( LevelUp());
     }
   }
 
-  void LevelUp()
+  IEnumerator LevelUp()
   {
+    yield return new WaitForSeconds(0.6f);
     matchCount = 0;
     level++;
     UpdateLevel();
+  }
+
+  public void Miss()
+  {
+    lives--;
+    updateLives.Invoke(lives);
   }
 
   void UpdateLevel()
