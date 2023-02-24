@@ -6,7 +6,7 @@ using TMPro;
 
 public class LivesUI : MonoBehaviour
 {
-  public TMP_Text livesText;
+  public TMP_Text lifesText;
   public List<Image> hearts;
 
   public Sprite heartFilled;
@@ -14,15 +14,15 @@ public class LivesUI : MonoBehaviour
 
   void Start()
   {
-    GameManager.instance.levelManager.updateLives += UpdateText;
+    GameManager.instance.levelManager.updateLifes += UpdateText;
   }
 
-  void UpdateText(int newLives)
+  void UpdateText(int newLifes)
   {
-    livesText.text = newLives.ToString();
+    lifesText.text = newLifes.ToString();
 
     var len = hearts.Count;
-    for (int i = 0; i < len - newLives; i++)
+    for (int i = 0; i < len - newLifes; i++)
     {
       hearts[i].sprite = heartOutlined;
     }

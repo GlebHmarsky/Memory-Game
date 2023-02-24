@@ -9,8 +9,8 @@ public class LevelManager : MonoBehaviour
   int level = 3;
   private int pairCount;
   private int matchCount;
-  public int lives = 5;
-  public event Action<int> updateLives;
+  public int lifes = 5;
+  public event Action<int> updateLifes;
   private TokenCreateManager tokenCreateManager;
 
   private void Start()
@@ -39,8 +39,18 @@ public class LevelManager : MonoBehaviour
 
   public void Miss()
   {
-    lives--;
-    updateLives.Invoke(lives);
+    lifes--;
+    updateLifes.Invoke(lifes);
+    if (lifes == 0)
+    {
+      OnLifesEnd();
+    }
+  }
+
+  void OnLifesEnd()
+  {
+    SetActive(false);
+
   }
 
   void UpdateLevel()
@@ -71,7 +81,7 @@ public class LevelManager : MonoBehaviour
         {
           pairCount = 5;
           tokenCreateManager.CreateTokenList(pairCount);
-          Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 5, 3);
+          Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 5, 2.3f);
           duration = 4;
         }
         break;
