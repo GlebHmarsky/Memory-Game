@@ -6,6 +6,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
   int level = 1;
+  private int pairCount;
+  private int matchCount;
+  public int lives = 5;
   private TokenCreateManager tokenCreateManager;
 
   private void Start()
@@ -16,6 +19,9 @@ public class LevelManager : MonoBehaviour
 
   void UpdateLevel()
   {
+
+    Utils.Shuffle(GameManager.instance.tokenManger.faces);
+
     float duration = 1;
     switch (level)
     {
@@ -33,11 +39,25 @@ public class LevelManager : MonoBehaviour
           duration = 2;
         }
         break;
-      default:
       case 3:
         {
           tokenCreateManager.CreateTokenList(3);
           Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 3, 3);
+          duration = 3;
+        }
+        break;
+      case 4:
+        {
+          tokenCreateManager.CreateTokenList(5);
+          Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 5, 3);
+          duration = 3;
+        }
+        break;
+      case 5:
+      default:
+        {
+          tokenCreateManager.CreateTokenList(6);
+          Grid.PlaceByGrid(tokenCreateManager.tokens, 3, 4, 3);
           duration = 3;
         }
         break;
