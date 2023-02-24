@@ -17,6 +17,23 @@ public class LevelManager : MonoBehaviour
     UpdateLevel();
   }
 
+  public void AddMatch()
+  {
+    matchCount++;
+
+    if (matchCount == pairCount)
+    {
+      LevelUp();
+    }
+  }
+
+  void LevelUp()
+  {
+    matchCount = 0;
+    level++;
+    UpdateLevel();
+  }
+
   void UpdateLevel()
   {
 
@@ -27,28 +44,32 @@ public class LevelManager : MonoBehaviour
     {
       case 1:
         {
-          tokenCreateManager.CreateTokenList(1);
+          pairCount = 1;
+          tokenCreateManager.CreateTokenList(pairCount);
           Grid.PlaceByGrid(tokenCreateManager.tokens, 1, 2, 3);
           duration = 1;
         }
         break;
       case 2:
         {
-          tokenCreateManager.CreateTokenList(2);
+          pairCount = 2;
+          tokenCreateManager.CreateTokenList(pairCount);
           Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 2, 3);
           duration = 2;
         }
         break;
       case 3:
         {
-          tokenCreateManager.CreateTokenList(3);
+          pairCount = 3;
+          tokenCreateManager.CreateTokenList(pairCount);
           Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 3, 3);
           duration = 3;
         }
         break;
       case 4:
         {
-          tokenCreateManager.CreateTokenList(5);
+          pairCount = 5;
+          tokenCreateManager.CreateTokenList(pairCount);
           Grid.PlaceByGrid(tokenCreateManager.tokens, 2, 5, 3);
           duration = 3;
         }
@@ -56,7 +77,8 @@ public class LevelManager : MonoBehaviour
       case 5:
       default:
         {
-          tokenCreateManager.CreateTokenList(6);
+          pairCount = 6;
+          tokenCreateManager.CreateTokenList(pairCount);
           Grid.PlaceByGrid(tokenCreateManager.tokens, 3, 4, 3);
           duration = 3;
         }

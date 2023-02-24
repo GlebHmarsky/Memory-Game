@@ -23,6 +23,7 @@ public class TokenManger : MonoBehaviour
         Debug.Log("Match!");
         DisableSelected();
         Discard();
+        GameManager.instance.levelManager.AddMatch();
       }
       else
       {

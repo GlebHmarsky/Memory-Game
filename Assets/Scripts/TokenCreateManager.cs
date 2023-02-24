@@ -9,11 +9,22 @@ public class TokenCreateManager : MonoBehaviour
 
   public void CreateTokenList(int tokenPairCount)
   {
+    ClearTokens();
     for (int i = 0; i < tokenPairCount; i++)
     {
       CreateTokenPair(i);
     }
     Utils.Shuffle(tokens);
+  }
+
+  void ClearTokens()
+  {
+    Debug.Log(tokens.Count);
+    foreach (var token in tokens)
+    {
+      Destroy(token.gameObject);
+    }
+    tokens.Clear();
   }
 
   void CreateTokenPair(int index)
