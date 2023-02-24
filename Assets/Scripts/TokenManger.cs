@@ -31,6 +31,7 @@ public class TokenManger : MonoBehaviour
       {
         Token[] arr = { firstToken, secondToken };
         Discard();
+
         StartCoroutine(Miss(arr));
       }
     }
@@ -39,9 +40,11 @@ public class TokenManger : MonoBehaviour
   private IEnumerator Miss(Token[] list)
   {
     Debug.Log("Miss :(");
+    SetActive(list, false);
     yield return new WaitForSeconds(0.5f);
     CloseCards(list);
     GameManager.instance.levelManager.Miss();
+    SetActive(list, true);
 
   }
 
@@ -69,6 +72,15 @@ public class TokenManger : MonoBehaviour
   {
     secondToken.active = firstToken.active = false;
   }
+
+  public void SetActive(Token[] list, bool active)
+  {
+    foreach (var token in list)
+    {
+      token.active = active;
+    }
+  }
+
 
   public void Discard()
   {
