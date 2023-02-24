@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(TokenCreateManager))]
 public class LevelManager : MonoBehaviour
 {
-  int level = 2;
+  int level = 1;
   private TokenCreateManager tokenCreateManager;
 
   private void Start()

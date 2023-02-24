@@ -21,7 +21,7 @@ public class TokenManger : MonoBehaviour
       if (CheckTokens())
       {
         Debug.Log("Match!");
-        DisableCards();
+        DisableSelected();
         Discard();
       }
       else
@@ -45,7 +45,7 @@ public class TokenManger : MonoBehaviour
     Discard();
   }
 
-  public void DisableCards()
+  public void DisableSelected()
   {
     secondToken.active = firstToken.active = false;
   }
