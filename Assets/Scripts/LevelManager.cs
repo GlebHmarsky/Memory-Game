@@ -11,9 +11,12 @@ public class LevelManager : MonoBehaviour
   int level = 1;
   private int pairCount;
   private int matchCount;
+  public int globalMatchCount;
+  public float time;
   public int lifes = 5;
   public event Action<int> updateLifes;
   private TokenCreateManager tokenCreateManager;
+  public Timer timer;
 
   private void Start()
   {
@@ -24,7 +27,7 @@ public class LevelManager : MonoBehaviour
   public void AddMatch()
   {
     matchCount++;
-
+    globalMatchCount++;
     if (matchCount == pairCount)
     {
       StartCoroutine(LevelUp());
@@ -35,6 +38,7 @@ public class LevelManager : MonoBehaviour
   {
     yield return new WaitForSeconds(0.6f);
     matchCount = 0;
+
     level++;
     UpdateLevel();
   }
@@ -43,6 +47,7 @@ public class LevelManager : MonoBehaviour
   {
     lifes--;
     updateLifes.Invoke(lifes);
+    time = timer.timer;
     if (lifes == 0)
     {
       OnLifesEnd();

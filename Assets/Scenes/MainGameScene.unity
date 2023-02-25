@@ -1047,7 +1047,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d425a983d300d0a4eb79302358e34b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 5
+  globalMatchCount: 0
+  time: 0
+  lifes: 1
+  timer: {fileID: 1177033871}
 --- !u!1 &925338974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,6 +1278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerDuration: 180
   countDown: 0
+  timer: 0
   firstMinute: {fileID: 1679174563}
   secondMinute: {fileID: 1901755996}
   separator: {fileID: 600636450}
