@@ -19,7 +19,6 @@ public class TokenCreateManager : MonoBehaviour
 
   void ClearTokens()
   {
-    Debug.Log(tokens.Count);
     foreach (var token in tokens)
     {
       Destroy(token.gameObject);

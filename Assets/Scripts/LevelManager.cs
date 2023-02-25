@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour
   private TokenCreateManager tokenCreateManager;
   public Timer timer;
 
+
+  public AudioSource tapSound;
+  public AudioSource jingleSound;
+
   private void Start()
   {
     tokenCreateManager = GameManager.instance.tokenCreateManager;
@@ -36,6 +40,7 @@ public class LevelManager : MonoBehaviour
 
   IEnumerator LevelUp()
   {
+    jingleSound.Play();
     yield return new WaitForSeconds(0.6f);
     matchCount = 0;
 

@@ -12,6 +12,7 @@ public class TokenManger : MonoBehaviour
 
   public void OpenCard(Token token)
   {
+    GameManager.instance.levelManager.tapSound.Play();
     if (!firstToken)
     {
       firstToken = token;
@@ -22,7 +23,6 @@ public class TokenManger : MonoBehaviour
 
       if (CheckTokens())
       {
-        Debug.Log("Match!");
         DisableSelected();
         Discard();
         GameManager.instance.levelManager.AddMatch();
@@ -39,7 +39,6 @@ public class TokenManger : MonoBehaviour
 
   private IEnumerator Miss(Token[] list)
   {
-    Debug.Log("Miss :(");
     SetActive(list, false);
     yield return new WaitForSeconds(0.5f);
     CloseCards(list);
