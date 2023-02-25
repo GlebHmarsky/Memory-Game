@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(TokenCreateManager))]
 public class LevelManager : MonoBehaviour
 {
-  int level = 3;
+  int level = 1;
   private int pairCount;
   private int matchCount;
   public int lifes = 5;
@@ -50,7 +52,13 @@ public class LevelManager : MonoBehaviour
   void OnLifesEnd()
   {
     SetActive(false);
+    StartCoroutine(LoadEndScene());
+  }
 
+  IEnumerator LoadEndScene()
+  {
+    yield return new WaitForSeconds(1);
+    SceneManager.LoadScene("EndScene");
   }
 
   void UpdateLevel()
@@ -114,7 +122,6 @@ public class LevelManager : MonoBehaviour
     yield return new WaitForSeconds(duration);
     CloseCards();
     SetActive(true);
-
   }
 
   void OpenCards()

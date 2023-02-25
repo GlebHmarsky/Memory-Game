@@ -19,8 +19,6 @@ public class LivesUI : MonoBehaviour
 
   void UpdateText(int newLifes)
   {
-    lifesText.text = newLifes.ToString();
-
     var len = hearts.Count;
     for (int i = 0; i < len - newLifes; i++)
     {
