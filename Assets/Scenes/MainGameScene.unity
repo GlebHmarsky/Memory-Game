@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalMatchCount: 0
   time: 0
-  lifes: 1
+  lifes: 5
   timer: {fileID: 1177033871}
   tapSound: {fileID: 881841668}
   jingleSound: {fileID: 881841667}

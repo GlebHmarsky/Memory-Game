@@ -17,6 +17,11 @@ public class MainMenu : MonoBehaviour
 
   public void ToMenu()
   {
+    if (GameManager.instance)
+    {
+      Destroy(GameManager.instance.gameObject);
+    }
+
     SceneManager.LoadScene("MenuScene");
   }
 }
